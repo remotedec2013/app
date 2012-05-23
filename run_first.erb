@@ -9,13 +9,13 @@ end
 
 def configure_remote
   `git remote rm jp`
-  `git remote add jp git://github.com/<%= configatron.git.user %>/<%= configatron.git.repo %>.git`
+  `git remote add jp git://github.com/@configatron.git.user@/@configatron.git.repo@.git`
 end
 
-def create_first_branch
-  checkout("start_of_week")
+def create_first_branches
+  %w[clean master starting_point].each{|branch| checkout(branch)}
 end
 
 install_utilities
 configure_remote
-create_first_branch
+create_first_branches

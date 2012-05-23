@@ -2,7 +2,7 @@
 
 require_relative 'git_utils.rb'
 
-exit_if_on_the_master_branch
+%w[master clean].each{|branch| exit_if_on_branch branch}
 
 `git add -A`
 `git commit -m "Pushing new changes"`
