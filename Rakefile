@@ -30,9 +30,9 @@ task :init  => :clean do
     configatron.artifacts_dir,
     configatron.specs.dir,
     configatron.specs.report_dir,
-    configatron.web_staging_dir,
-    configatron.web_log_dir,
-    configatron.web_trace_dir
+    configatron.web_staging_dir
+    # configatron.web_log_dir
+    # configatron.web_trace_dir
   ].each do |folder| 
     FileUtils.mkdir_p folder if ! File.exists?(folder)
   end
