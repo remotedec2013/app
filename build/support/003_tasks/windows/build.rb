@@ -20,6 +20,6 @@ namespace :build do
 
   task :run => [:kill_iis,'build:web'] do
     system("start start_web_app.bat")
-    system("start #{configatron.start_url}")
+    system("start #{configatron.browser} #{configatron.start_url}")
   end
 end
