@@ -2,22 +2,22 @@
 
 require_relative 'git_utils.rb'
 
-%w[master clean].each{|branch| exit_if_on_branch branch}
+%w[master clean].each{|branch| exit_if_on_the_branch branch}
 
 current_time = Time.now
 new_branch_name = current_time.strftime("%Y%m%d%H%M%S%3N")
-`git add -A`
-`git commit -m "Committing"`
+run_git_command 'add -A'
+run_git_command 'commit -m "Committing"'
 
 puts "Enter a meaningful branch name (leave empty if you don't need one)"
 branch_name = readline.chomp.strip.gsub(" ","_").downcase
 
 checkout(branch_name) if (branch_name != "")
-checkout('master')
+checkout('clean')
 
-exit_if_not_on_the_master_branch
+exit_if_not_on_the_branch 'clean'
 
 checkout(new_branch_name)
-`git pull jp master`
+run_git_command("pull jp master")
 puts "new branch name:#{new_branch_name}"
 

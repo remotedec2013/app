@@ -29,7 +29,7 @@ def update_to_specific_branch_on(remote_name)
   run_git_command("pull #{remote_name} #{specific_branch}")
 end
 
-%w[master clean].each{|branch| exit_if_on_branch branch}
+%w[master clean].each{|branch| exit_if_on_the_branch branch}
 
 remote_name = ARGV.shift
 remote_name = choose_remote(get_all_available_non_origin_remotes) if remote_name == nil
