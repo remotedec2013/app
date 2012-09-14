@@ -17,13 +17,22 @@
     <pages autoEventWireup="false">
     </pages>
     <authentication mode="Windows"/>
+    <% unless configatron.has_iis_express %>
     <!--<httpHandlers>
       <add path=""
         verb="*"
         type=""/>
-        </httpHandlers>-->
+        </httpHandlers> -->
+    <% end %>
    </system.web>
   <system.webServer>
+    <% if configatron.has_iis_express %>
+    <!--<handlers>
+      <add name="" path=""
+        verb="*"
+        type=""/>
+        </handlers> -->
+    <% end %>
   </system.webServer>
 
   <!--<system.codedom>
