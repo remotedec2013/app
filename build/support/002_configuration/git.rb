@@ -1,6 +1,6 @@
 configs ={
   :git => {
-    :user => missing("user",__FILE__),
+    :user => '20120917brussels',
     :remotes => potentially_change("remotes",__FILE__),
     :repo => 'app' 
   }

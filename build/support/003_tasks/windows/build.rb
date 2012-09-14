@@ -1,11 +1,20 @@
 require 'albacore'
 
 namespace :build do
-  desc 'compiles the library project'
-  csc :compile => :init do|csc| 
-    csc.compile FileList["source/**/*.cs"].exclude("AssemblyInfo.cs")
+  desc 'compiles the libs'
+  task :compile => %w/build:_compile build:_compile_all/ 
+
+  csc :_compile => :init do|csc| 
+    csc.compile FileList["source/**/*.cs"].exclude("AssemblyInfo.cs").exclude("source/app.web.ui/**/*.cs")
     csc.references configatron.all_references
     csc.output = File.join(configatron.artifacts_dir,"#{configatron.project}.dll")
+    csc.target = :library
+  end
+
+  csc :_compile_all => :init do|csc| 
+    csc.compile FileList["source/**/*.cs"].exclude("AssemblyInfo.cs")
+    csc.references configatron.all_references
+    csc.output = File.join(configatron.artifacts_dir,"#{configatron.project}_specs.dll")
     csc.target = :library
   end
 
