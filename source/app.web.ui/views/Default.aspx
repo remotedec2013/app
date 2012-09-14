@@ -4,6 +4,6 @@
     enableViewStateMac="True" %>
 <asp:Content runat="server" id="contentPlaceHolder" ContentPlaceHolderId="childContentPlaceHolder">
     <div align="center">
-        <asp:Image id="titleImage" ImageURL="~/images/Title.jpg" runat="server" Width="736px" />
+        <asp:Image id="titleImage" ImageURL="~/images/title.jpg" runat="server" Width="736px" />
     </div>
 </asp:Content>
