@@ -5,16 +5,23 @@ namespace :build do
   csc :compile => :init do|csc| 
     csc.compile FileList["source/**/*.cs"].exclude("AssemblyInfo.cs")
     csc.references configatron.all_references
-    csc.output = File.join(configatron.artifacts_dir,"#{configatron.project}.specs.dll")
+    csc.output = File.join(configatron.artifacts_dir,"#{configatron.project}.dll")
     csc.target = :library
   end
 
   desc 'compiles the web project'
-  aspnetcompiler :web => [:init, :copy_config_files] do |c|
+  aspnetcompiler :_web => [:init, :copy_config_files] do |c|
     c.physical_path = "source/app.web.ui"
     c.target_path = configatron.web_staging_dir
     c.updateable = true
     c.force = true
+  end
+
+  task :web => [:init, :copy_config_files,"build:compile"] do |c|
+    FileUtils.rm_rf "source/app.web.ui/Bin"
+    FileUtils.mkdir "source/app.web.ui/Bin"
+    FileUtils.cp File.join(configatron.artifacts_dir,"#{configatron.project}.dll"), "source/app.web.ui/Bin"
+    Rake::Task["build:_web"].invoke
   end
 
   task :rebuild => ["clean","compile"]
