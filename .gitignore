@@ -1,12 +1,8 @@
 source/*/obj
 source/*/bin
 *.chm
-_[Rr]e[Ss]harper.*
 *.csproj.user
-*.[Rr]e[Ss]harper.user
-*.[Rr]e[Ss]harper
 *.suo
-*.cache
 *.csproj-[1-9]*
 *.csproj[1-9]*
 *~
@@ -27,4 +23,9 @@ empty.cs
 applicationhost.config
 start_web_app.bat
 web_staging
-*.DotSettings*
+*.[Dd]otSettings*
+*.ncrunch*
+_[Rr]e[Ss]harper.*
+*.[Rr]e[Ss]harper.user
+*.[Rr]e[Ss]harper
+*.cache
