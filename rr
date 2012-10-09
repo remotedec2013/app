@@ -1,0 +1,4 @@
+#!/bin/bash
+
+taskkill -IM devenv.exe
+sln

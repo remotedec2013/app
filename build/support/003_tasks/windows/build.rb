@@ -41,3 +41,4 @@ namespace :build do
     system("start #{configatron.browser} #{configatron.start_url}")
   end
 end
+
