@@ -11,7 +11,7 @@ source/*/bin
 *.swo
 /source/docs/Help/*.*
 artifacts
-UpgradeLog.XML
+UpgradeLog*
 _UpgradeReport_Files
 git.yaml
 Gemfile.lock
@@ -29,3 +29,4 @@ _[Rr]e[Ss]harper.*
 *.[Rr]e[Ss]harper.user
 *.[Rr]e[Ss]harper
 *.cache
+Backup
