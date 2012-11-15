@@ -85,7 +85,11 @@ end
 
 def monitor
   if changes_have_occured
-    errors = get_errors_in(`rake specs:run`)
+    build_output = `rake specs:run`
+    File.open('build_output','w') do|file|
+      file << build_output
+    end
+    errors = get_errors_in(build_output)
     notify(BuildMessage.new(errors))
   end
 end
